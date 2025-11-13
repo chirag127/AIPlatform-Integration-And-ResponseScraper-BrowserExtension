@@ -103,6 +103,51 @@ Each platform has a dedicated parser extending `BaseParser`:
 - `GeminiParser`: Extracts responses from Gemini
 - `PerplexityParser`: Extracts responses from Perplexity
 
+## AI Companion Userscript
+
+A customizable userscript that provides a multi-AI platform companion panel for web browsing.
+
+### Userscript Features
+
+- **Multiple AI Platforms**: Support for ChatGPT, Claude, Gemini, and Perplexity
+- **User Preferences System**: 
+  - Enable/disable specific AI platforms
+  - Toggle auto-query on page load
+  - Customize panel position and size
+- **Settings UI**: Full-featured modal for managing preferences
+- **Persistent Storage**: Uses GM_setValue/GM_getValue to save preferences
+- **Draggable & Resizable Panel**: Move and resize the panel to your preference
+- **Minimize/Close Controls**: Collapse or hide the panel as needed
+
+### Userscript Installation
+
+1. Install a userscript manager like [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/)
+2. Click on `ai-companion.user.js` to view the script
+3. Click the "Raw" button to trigger the userscript manager installation prompt
+4. Confirm installation
+
+### Userscript Usage
+
+Once installed, the AI Companion panel will appear on all web pages. You can:
+
+- **Ask Questions**: Type in the input field and press Enter or click Send
+- **Open Settings**: Click the ⚙️ icon to customize preferences
+- **Minimize Panel**: Click the − button to collapse the panel
+- **Close Panel**: Click the × button to hide the panel
+- **Drag Panel**: Click and drag the header to reposition
+- **Resize Panel**: Drag from the bottom-right corner to resize
+
+### Settings
+
+The settings modal allows you to:
+
+- **AI Platforms**: Toggle individual AI platforms on/off
+- **Auto Query**: Enable/disable automatic querying when a page loads
+- **Panel Position**: Set X and Y coordinates for the panel
+- **Panel Size**: Set width and height dimensions
+
+All settings are saved automatically and persist across sessions.
+
 ## Installation
 
 ```bash

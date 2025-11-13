@@ -29,13 +29,7 @@ dist/
 # Build outputs
 build/
 out/
-
-# Dependencies (expanded)
-package-lock.json
-
-# Vite/Build outputs (expanded)
 dist/
-build/
 
 # Cache
 .cache/
