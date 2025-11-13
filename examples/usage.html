@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Platform Integrations - Demo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .controls {
+            margin-bottom: 20px;
+        }
+        select, input, button {
+            padding: 10px;
+            margin: 5px;
+            font-size: 14px;
+        }
+        input {
+            width: 300px;
+        }
+        #container {
+            flex: 1;
+            border: 2px solid #ccc;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <div class="controls">
+        <select id="platform">
+            <option value="chatgpt">ChatGPT</option>
+            <option value="claude">Claude</option>
+            <option value="gemini">Gemini</option>
+            <option value="perplexity">Perplexity</option>
+            <option value="grok">Grok</option>
+            <option value="copilot">Copilot</option>
+            <option value="meta-ai">Meta AI</option>
+        </select>
+        <input type="text" id="prompt" placeholder="Enter your prompt...">
+        <button id="load">Load</button>
+        <button id="update">Update Prompt</button>
+        <button id="clear">Clear</button>
+    </div>
+    <div id="container"></div>
+
+    <script type="module">
+        import { AIIntegrations } from '../dist/index.js';
+
+        let currentIntegration = null;
+        const container = document.getElementById('container');
+        const platformSelect = document.getElementById('platform');
+        const promptInput = document.getElementById('prompt');
+        const loadBtn = document.getElementById('load');
+        const updateBtn = document.getElementById('update');
+        const clearBtn = document.getElementById('clear');
+
+        loadBtn.addEventListener('click', () => {
+            if (currentIntegration) {
+                currentIntegration.destroy();
+            }
+
+            const platformKey = platformSelect.value;
+            const IntegrationClass = AIIntegrations[getPlatformClass(platformKey)];
+            currentIntegration = new IntegrationClass();
+            
+            const prompt = promptInput.value.trim();
+            currentIntegration.createIframe(container, prompt || undefined);
+        });
+
+        updateBtn.addEventListener('click', () => {
+            if (currentIntegration && promptInput.value.trim()) {
+                currentIntegration.updatePrompt(promptInput.value.trim());
+            }
+        });
+
+        clearBtn.addEventListener('click', () => {
+            if (currentIntegration) {
+                currentIntegration.destroy();
+                currentIntegration = null;
+            }
+            container.innerHTML = '';
+        });
+
+        function getPlatformClass(key) {
+            const mapping = {
+                'chatgpt': 'ChatGPT',
+                'claude': 'Claude',
+                'gemini': 'Gemini',
+                'perplexity': 'Perplexity',
+                'grok': 'Grok',
+                'copilot': 'Copilot',
+                'meta-ai': 'MetaAI'
+            };
+            return mapping[key];
+        }
+    </script>
+</body>
+</html>

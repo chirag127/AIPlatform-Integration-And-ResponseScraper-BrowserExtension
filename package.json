@@ -1,0 +1,32 @@
+{
+  "name": "ai-platform-integrations",
+  "version": "1.0.0",
+  "description": "Integration modules for major AI platforms using iframe embedding",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src --ext .ts",
+    "test": "echo \"No tests specified\" && exit 0"
+  },
+  "keywords": [
+    "ai",
+    "chatgpt",
+    "claude",
+    "gemini",
+    "perplexity",
+    "grok",
+    "copilot",
+    "meta-ai",
+    "iframe",
+    "integration"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^6.0.0",
+    "@typescript-eslint/parser": "^6.0.0",
+    "eslint": "^8.0.0",
+    "typescript": "^5.0.0"
+  }
+}

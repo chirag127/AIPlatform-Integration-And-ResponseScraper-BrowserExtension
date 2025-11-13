@@ -2,33 +2,51 @@
 
 ## Commands
 
-### Setup
-```bash
-# TBD - Install dependencies and set up environment
+**Setup:** `npm install`
+
+**Build:** `npm run build`
+
+**Lint:** `npm run lint`
+
+**Test:** `npm run test`
+
+**Dev Server:** N/A (Use examples/usage.html with a local server)
+
+## Tech Stack
+
+- TypeScript
+- ES Modules
+- DOM APIs for iframe manipulation
+- postMessage API for cross-origin communication
+
+## Architecture & Structure
+
+```
+src/
+  integrations/
+    base-integration.ts    # Abstract base class for all integrations
+    chatgpt.ts            # ChatGPT integration
+    claude.ts             # Claude integration
+    gemini.ts             # Gemini integration
+    perplexity.ts         # Perplexity integration
+    grok.ts               # Grok integration
+    copilot.ts            # Copilot integration
+    meta-ai.ts            # Meta AI integration
+    index.ts              # Barrel exports
+examples/
+  usage.html              # Demo HTML page
 ```
 
-### Build
-```bash
-# TBD - Build project
-```
+Each integration extends `BaseAIIntegration` and configures:
+- Base URL
+- Query parameter support and key
+- postMessage support
+- Valid origins for postMessage security
 
-### Lint
-```bash
-# TBD - Run linters
-```
+## Code Style
 
-### Test
-```bash
-# TBD - Run tests
-```
-
-### Dev Server
-```bash
-# TBD - Start development server
-```
-
-## Tech Stack & Architecture
-- TBD - Add details once project structure is established
-
-## Code Style & Conventions
-- TBD - Add conventions once codebase is created
+- TypeScript with strict mode enabled
+- ES2020 target
+- Abstract classes for shared functionality
+- Type-safe interfaces for configuration
+- ESLint for code quality

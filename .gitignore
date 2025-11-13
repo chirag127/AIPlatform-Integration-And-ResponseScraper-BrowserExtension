@@ -13,3 +13,19 @@ desktop.ini
 # Logs
 *.log
 npm-debug.log*
+logs/
+
+# Node.js
+node_modules/
+yarn-debug.log*
+yarn-error.log*
+package-lock.json
+yarn.lock
+
+# TypeScript
+dist/
+*.tsbuildinfo
+
+# Build outputs
+build/
+out/
