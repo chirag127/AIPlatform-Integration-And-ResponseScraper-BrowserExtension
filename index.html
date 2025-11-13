@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Response Scraper</title>
+    <link rel="stylesheet" href="src/styles/main.css">
+</head>
+<body>
+    <div id="app">
+        <header class="app-header">
+            <h1>AI Response Scraper</h1>
+            <div class="controls">
+                <button id="startScraping" class="btn btn-primary">Start Scraping</button>
+                <button id="stopScraping" class="btn btn-secondary">Stop Scraping</button>
+                <button id="clearResponses" class="btn btn-danger">Clear All</button>
+            </div>
+        </header>
+
+        <div class="status-bar">
+            <span id="statusText" class="status-text">Ready</span>
+            <span id="responseCount" class="response-count">0 responses</span>
+        </div>
+
+        <main class="main-content">
+            <div class="view-toggle">
+                <button id="tabView" class="view-btn active">Tab View</button>
+                <button id="accordionView" class="view-btn">Accordion View</button>
+            </div>
+
+            <div id="tabViewContainer" class="tab-view-container">
+                <div class="tab-list" id="tabList"></div>
+                <div class="tab-content" id="tabContent"></div>
+            </div>
+
+            <div id="accordionViewContainer" class="accordion-view-container" style="display: none;">
+                <div id="accordionContent"></div>
+            </div>
+
+            <div id="emptyState" class="empty-state">
+                <p>No responses captured yet. Click "Start Scraping" to begin.</p>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="src/main.js"></script>
+</body>
+</html>
