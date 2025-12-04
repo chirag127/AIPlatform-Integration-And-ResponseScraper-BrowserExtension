@@ -1,41 +1,61 @@
-# OS files
-.DS_Store
-Thumbs.db
-desktop.ini
+# Byte-compiled / optimized Python files
+*.pyc
+__pycache__/
+*.pyo
+*.pyd
 
-# Editor files
+# Distribution / packaging
+*.egg-info/
+build/
+dist/
+*.egg
+
+# Environment variables
+.env
+.env.*
+
+# IDE / Editor specific files
 .vscode/
 .idea/
-*.swp
-*.swo
-*~
+*.sublime-project
+*.sublime-workspace
 
-# Logs
+# Testing / Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Temporary files
+*.tmp
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Package manager cache (e.g., uv, pip)
+.uv/
+__pypackages__/
+
+# Build artifacts (e.g., from PyInstaller or similar)
+*.spec
+*.manifest
+
+# Log files
 *.log
-npm-debug.log*
-logs/
 
-# Node.js
+# Specific to Vite/Frontend build if applicable (though this repo is Python-centric)
 node_modules/
-yarn-debug.log*
-yarn-error.log*
-package-lock.json
-yarn.lock
-
-# TypeScript
 dist/
-*.tsbuildinfo
+.output/
 
-# Build outputs
-build/
-out/
-dist/
+# macOS specific files
+.AppleDouble
+.LSOverride
 
-# Cache
-.cache/
-.vite/
+# Windows specific files
+pagefile.sys
+swapfile.sys
 
-# Environment
-.env
-.env.local
-.env.*.local
+# Secrets/Credentials (should be handled by .env, but as an extra layer)
+credentials.json
+secrets.yaml
