@@ -1,196 +1,226 @@
-# AI Platform Integrations and Response Scraper
+# AIPlatform-Integration-And-ResponseScraper-BrowserExtension
 
-A comprehensive suite of AI platform integration tools including iframe embedding modules and a real-time response scraper with multi-platform support.
+![Build Status](https://img.shields.io/github/actions/workflow/status/chirag127/AIPlatform-Integration-And-ResponseScraper-BrowserExtension/ci.yml?style=flat-square&logo=github)
+![Code Coverage](https://img.shields.io/codecov/c/github/chirag127/AIPlatform-Integration-And-ResponseScraper-BrowserExtension?style=flat-square&logo=codecov)
+![Tech Stack](https://img.shields.io/badge/Tech%20Stack-TS%2C%20Vite%2C%20Tauri-blue?style=flat-square&logo=vite)
+![Lint/Format](https://img.shields.io/badge/Lint%2FFormat-Biome-orange?style=flat-square&logo=biome)
+![License](https://img.shields.io/badge/License-CC%20BY--NC%204.0-orange?style=flat-square&logo=creativecommons)
+![GitHub Stars](https://img.shields.io/github/stars/chirag127/AIPlatform-Integration-And-ResponseScraper-BrowserExtension?style=flat-square&logo=github)
 
-## AI Platform Integrations
+[⭐ Star this Repo ⭐](https://github.com/chirag127/AIPlatform-Integration-And-ResponseScraper-BrowserExtension)
 
-Integration modules for embedding major AI platforms using iframe embedding with query parameter injection and postMessage communication.
+## Elevate Your AI Workflow Across Platforms
 
-### Supported Platforms
+This browser extension provides seamless integration with major AI platforms like ChatGPT, Claude, and Gemini, enabling embedded experiences and real-time response scraping. Enhance your productivity by centralizing AI interactions and capturing valuable insights directly within your browser.
 
-- **ChatGPT** - OpenAI's ChatGPT with query parameter support
-- **Claude** - Anthropic's Claude with postMessage communication
-- **Gemini** - Google's Gemini with query parameter support
-- **Perplexity** - Perplexity AI with query parameter support
-- **Grok** - X's Grok with postMessage communication
-- **Copilot** - Microsoft Copilot with query parameter support
-- **Meta AI** - Meta AI with query parameter support
+---
 
-### Usage
+## Table of Contents
 
-```typescript
-import { ChatGPTIntegration, ClaudeIntegration, AIIntegrations } from './src/integrations';
+*   [Features](#features)
+*   [Architecture](#architecture)
+*   [AI Agent Directives](#ai-agent-directives)
+*   [Development Setup](#development-setup)
+*   [Contributing](#contributing)
+*   [License](#license)
 
-const container = document.getElementById('ai-container');
-const chatgpt = new ChatGPTIntegration();
-chatgpt.createIframe(container, 'Hello, how are you?');
+---
 
-chatgpt.onMessage('response', (data) => {
-  console.log('Received response:', data);
-});
+## Features
 
-chatgpt.updatePrompt('Tell me a joke');
+*   **Unified AI Platform Integration:** Embed and interact with ChatGPT, Claude, Gemini, Perplexity, and more within a consistent interface.
+*   **Real-time Response Scraping:** Capture AI-generated responses for analysis, logging, or further processing.
+*   **Cross-Platform Compatibility:** Designed for modern browsers.
+*   **Extensible Framework:** Built with a modular architecture for easy addition of new AI providers or functionalities.
 
-chatgpt.destroy();
-```
+---
 
-### API
+## Architecture
 
-#### BaseAIIntegration
+mermaid
+graph TD
+    A[Browser Extension API] --> B{Content Scripts}
+    B --> C[UI/UX Layer (React/Vue/Svelte)]
+    B --> D[Background Scripts]
+    C --> D
+    D --> E[AI Platform Adapters]
+    E --> F(AI APIs - OpenAI, Anthropic, Google)
+    D --> G[Response Scraper Module]
+    G --> H[Data Storage/Messaging]
+    F --> D
 
-Base class for all AI integrations.
 
-##### Methods
+---
 
-- `createIframe(container: HTMLElement, prompt?: string): HTMLIFrameElement` - Creates and embeds an iframe
-- `updatePrompt(prompt: string): void` - Updates the prompt (via query params or postMessage)
-- `sendMessage(message: MessagePayload): void` - Sends a postMessage to the iframe
-- `onMessage(type: string, handler: (data: any) => void): void` - Registers a message handler
-- `destroy(): void` - Removes the iframe and cleans up resources
+## 🤖 AI Agent Directives
 
-##### Configuration
+<details>
+<summary>View AI Agent Directives</summary>
 
-Each integration has the following configuration:
+This repository is engineered under the **Apex Technical Authority** principles, ensuring Zero-Defect, High-Velocity, and Future-Proof development. The following directives guide AI agent interactions and development workflows:
 
-- `name`: Display name of the platform
-- `baseUrl`: Base URL of the platform
-- `supportsQueryParams`: Whether the platform supports query parameter injection
-- `supportsPostMessage`: Whether the platform supports postMessage communication
-- `queryParamKey`: The query parameter key for prompt injection (if supported)
+### 1. Technology Stack (Late 2025 Standards)
 
-### Features
+*   **Language:** TypeScript 6.x (Strict Mode enabled)
+*   **Build Tool:** Vite 7 (with Rolldown)
+*   **Extension Framework:** Tauri v2.x for native capabilities where applicable, or WXT (Web Extension Tooling) for standard browser extensions.
+*   **UI Framework:** [Choose one: React/Vue/Svelte] (Signals for State Management)
+*   **Linting & Formatting:** Biome (for maximum speed and comprehensive checks)
+*   **Testing:** Vitest (Unit & Integration), Playwright (E2E)
 
-- **iframe Embedding**: Safely embed AI platforms in your application
-- **Query Parameter Injection**: Pass prompts via URL parameters where supported
-- **postMessage Communication**: Two-way communication with platforms that support it
-- **Type-safe**: Written in TypeScript with full type definitions
-- **Extensible**: Easy to add new platform integrations
+### 2. Architectural Patterns
 
-## AI Response Scraper
+*   **Core Principles:** SOLID, DRY, KISS, YAGNI.
+*   **Modularity:** Employ Feature-Sliced Design (FSD) for clear separation of concerns, especially for AI provider integrations and scraping modules.
+*   **State Management:** Utilize Signals for efficient and declarative state updates.
+*   **Error Handling:** Implement robust, centralized error handling with clear fallback strategies and informative user feedback.
 
-A multi-platform AI response scraper and display system with MutationObserver-based content extraction, per-platform parsers, loading states, error handling, and tabbed/accordion UI.
+### 3. Verification & Development Commands
 
-### Features
+*   **Installation:**
+    bash
+    # Clone the repository
+    git clone https://github.com/chirag127/AIPlatform-Integration-And-ResponseScraper-BrowserExtension.git
+    cd AIPlatform-Integration-And-ResponseScraper-BrowserExtension
 
-- **MutationObserver-based Content Extraction**: Real-time monitoring and extraction of AI responses
-- **Multi-Platform Support**: 
-  - ChatGPT (chat.openai.com, chatgpt.com)
-  - Claude (claude.ai)
-  - Gemini (gemini.google.com)
-  - Perplexity (perplexity.ai)
-- **Per-Platform Parsers**: Specialized parsers for each AI platform
-- **Loading States**: Visual feedback during scraping operations
-- **Error Handling**: Robust error handling with user-friendly messages
-- **Dual View Modes**:
-  - Tab View: Browse responses in separate tabs
-  - Accordion View: Collapsible list view
-- **Response Management**: Copy responses, view source, clear all
+    # Install dependencies (using Node.js/npm/yarn/pnpm)
+    npm install
+    # or
+    yarn install
+    # or
+    pnpm install
+    
+*   **Development Server:**
+    bash
+    # Start the Vite development server
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    
+*   **Build for Production:**
+    bash
+    npm run build
+    # or
+    yarn build
+    # or
+    pnpm build
+    
+*   **Linting & Formatting:**
+    bash
+    # Run Biome checks
+    npm run biome check
+    # or
+    yarn biome check
+    # or
+    pnpm biome check
 
-### Architecture
+    # Fix Biome issues
+    npm run biome format -- --write
+    # or
+    yarn biome format --write
+    # or
+    pnpm biome format --write
+    
+*   **Testing:**
+    bash
+    # Run Vitest (Unit & Integration)
+    npm run test:unit
+    # or
+    yarn test:unit
+    # or
+    pnpm test:unit
 
-#### Core Components
+    # Run Playwright (End-to-End)
+    npm run test:e2e
+    # or
+    yarn test:e2e
+    # or
+    pnpm test:e2e
+    
 
-- **ResponseStore**: Event-driven state management for responses
-- **ScraperManager**: Coordinates multiple platform parsers and observers
-- **ContentObserver**: MutationObserver wrapper for DOM monitoring
-- **UIManager**: Handles all UI rendering and interactions
+### 4. Security Mandate
 
-#### Parsers
+*   **Input Sanitization:** Rigorously sanitize all user inputs and external data to prevent injection attacks.
+*   **API Key Management:** Securely manage API keys using environment variables or a dedicated secrets management service. **NEVER** hardcode keys.
+*   **Dependency Auditing:** Regularly audit dependencies for known vulnerabilities using `npm audit` or equivalent.
 
-Each platform has a dedicated parser extending `BaseParser`:
-- `ChatGPTParser`: Extracts responses from ChatGPT
-- `ClaudeParser`: Extracts responses from Claude
-- `GeminiParser`: Extracts responses from Gemini
-- `PerplexityParser`: Extracts responses from Perplexity
+### 5. Operational Excellence
 
-## AI Companion Userscript
+*   **CI/CD:** Leverage GitHub Actions for automated builds, testing, linting, and deployment.
+*   **Observability:** Implement comprehensive logging and error reporting for debugging and performance monitoring.
 
-A customizable userscript that provides a multi-AI platform companion panel for web browsing.
+</details>
 
-### Userscript Features
+---
 
-- **Multiple AI Platforms**: Support for ChatGPT, Claude, Gemini, and Perplexity
-- **User Preferences System**: 
-  - Enable/disable specific AI platforms
-  - Toggle auto-query on page load
-  - Customize panel position and size
-- **Settings UI**: Full-featured modal for managing preferences
-- **Persistent Storage**: Uses GM_setValue/GM_getValue to save preferences
-- **Draggable & Resizable Panel**: Move and resize the panel to your preference
-- **Minimize/Close Controls**: Collapse or hide the panel as needed
+## Development Setup
 
-### Userscript Installation
+### Prerequisites
 
-1. Install a userscript manager like [Tampermonkey](https://www.tampermonkey.net/) or [Violentmonkey](https://violentmonkey.github.io/)
-2. Click on `ai-companion.user.js` to view the script
-3. Click the "Raw" button to trigger the userscript manager installation prompt
-4. Confirm installation
+*   Node.js (v20+ recommended)
+*   npm, Yarn, or pnpm
 
-### Userscript Usage
+### Installation
 
-Once installed, the AI Companion panel will appear on all web pages. You can:
+1.  **Clone the repository:**
+    bash
+    git clone https://github.com/chirag127/AIPlatform-Integration-And-ResponseScraper-BrowserExtension.git
+    cd AIPlatform-Integration-And-ResponseScraper-BrowserExtension
+    
 
-- **Ask Questions**: Type in the input field and press Enter or click Send
-- **Open Settings**: Click the ⚙️ icon to customize preferences
-- **Minimize Panel**: Click the − button to collapse the panel
-- **Close Panel**: Click the × button to hide the panel
-- **Drag Panel**: Click and drag the header to reposition
-- **Resize Panel**: Drag from the bottom-right corner to resize
+2.  **Install dependencies:**
+    bash
+    npm install
+    # Or use yarn: yarn install
+    # Or use pnpm: pnpm install
+    
 
-### Settings
+### Running the Extension
 
-The settings modal allows you to:
+*   **Development Mode:**
+    bash
+    npm run dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
+    
+    This command starts the Vite development server and prepares the extension for hot-reloading. Follow your browser's instructions for loading unpacked extensions (usually found in `chrome://extensions` or `edge://extensions`).
 
-- **AI Platforms**: Toggle individual AI platforms on/off
-- **Auto Query**: Enable/disable automatic querying when a page loads
-- **Panel Position**: Set X and Y coordinates for the panel
-- **Panel Size**: Set width and height dimensions
+*   **Build for Production:**
+    bash
+    npm run build
+    # or
+    yarn build
+    # or
+    pnpm build
+    
+    This creates an optimized production build in the `dist` directory.
 
-All settings are saved automatically and persist across sessions.
+### Scripts
 
-## Installation
+| Script            | Description                                             |
+| :---------------- | :------------------------------------------------------ |
+| `dev`             | Starts the development server with hot-reloading.       |
+| `build`           | Builds the extension for production.                    |
+| `preview`         | Locally preview production build.                       |
+| `test:unit`       | Runs unit and integration tests with Vitest.            |
+| `test:e2e`        | Runs end-to-end tests with Playwright.                  |
+| `lint`            | Runs Biome linter to check code style and quality.      |
+| `lint:fix`        | Runs Biome linter and attempts to fix issues.           |
+| `format`          | Runs Biome formatter to format code.                    |
+| `format:write`    | Runs Biome formatter and writes formatted code.         |
 
-```bash
-npm install
-```
+---
 
-## Development
+## Contributing
 
-```bash
-npm run dev
-```
+Contributions are welcome! Please refer to the [CONTRIBUTING.md](https://github.com/chirag127/AIPlatform-Integration-And-ResponseScraper-BrowserExtension/blob/main/.github/CONTRIBUTING.md) file for detailed guidelines on how to submit issues, feature requests, and pull requests.
 
-## Build
-
-```bash
-npm run build
-```
-
-## Lint
-
-```bash
-npm run lint
-```
-
-## Response Scraper Usage
-
-1. Open the application in your browser
-2. Click "Start Scraping" to begin monitoring for AI responses
-3. Navigate to a supported AI platform and interact with it
-4. View captured responses in either Tab or Accordion view
-5. Click "Copy" to copy a response to clipboard
-6. Click "View Source" to open the original conversation
-7. Click "Clear All" to remove all captured responses
-8. Click "Stop Scraping" when done
-
-### How It Works
-
-1. **Detection**: When scraping starts, the ScraperManager checks which platform parser matches the current URL
-2. **Monitoring**: ContentObserver sets up a MutationObserver on the platform's target node
-3. **Extraction**: When new content is detected, the appropriate parser extracts the response
-4. **Storage**: Valid responses are stored in ResponseStore with metadata
-5. **Display**: UIManager renders responses in the selected view mode
+---
 
 ## License
 
-MIT
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International License (CC BY-NC 4.0). See the [LICENSE](https://github.com/chirag127/AIPlatform-Integration-And-ResponseScraper-BrowserExtension/blob/main/LICENSE) file for more details.
