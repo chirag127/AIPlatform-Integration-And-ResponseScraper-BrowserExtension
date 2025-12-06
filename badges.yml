@@ -1,0 +1,25 @@
+badges:
+  - name: Build Status
+    image: https://github.com/chirag127/CogniFlow-AI-Platform-Integrator-And-Data-Extractor-Browser-Library/actions/workflows/ci.yml/badge.svg
+    url: https://github.com/chirag127/CogniFlow-AI-Platform-Integrator-And-Data-Extractor-Browser-Library/actions/workflows/ci.yml
+  - name: Code Coverage
+    image: https://codecov.io/gh/chirag127/CogniFlow-AI-Platform-Integrator-And-Data-Extractor-Browser-Library/branch/main/graphs/badge.svg?token=V7G1L3P6R9
+    url: https://codecov.io/gh/chirag127/CogniFlow-AI-Platform-Integrator-And-Data-Extractor-Browser-Library
+  - name: Tech Stack (TypeScript)
+    image: https://img.shields.io/badge/Tech-Stack-TypeScript-blue?style=flat-square
+    url: https://www.typescriptlang.org/
+  - name: Tech Stack (Vite)
+    image: https://img.shields.io/badge/Build-Tool-Vite-orange?style=flat-square
+    url: https://vitejs.dev/
+  - name: Tech Stack (TailwindCSS)
+    image: https://img.shields.io/badge/Styling-TailwindCSS-teal?style=flat-square
+    url: https://tailwindcss.com/
+  - name: Lint & Format (Biome)
+    image: https://img.shields.io/badge/Code%20Quality-Biome-4CAF50?style=flat-square
+    url: https://biomejs.dev/
+  - name: License (CC BY-NC 4.0)
+    image: https://img.shields.io/github/license/chirag127/CogniFlow-AI-Platform-Integrator-And-Data-Extractor-Browser-Library?style=flat-square
+    url: https://creativecommons.org/licenses/by-nc/4.0/
+  - name: GitHub Stars
+    image: https://img.shields.io/github/stars/chirag127/CogniFlow-AI-Platform-Integrator-And-Data-Extractor-Browser-Library?color=a458ff&style=flat-square
+    url: https://github.com/chirag127/CogniFlow-AI-Platform-Integrator-And-Data-Extractor-Browser-Library/stargazers
